@@ -12,20 +12,6 @@ data "aws_iam_policy_document" "lambda_assume_role" {
   }
 }
 
-# API Gateway IAM policy document
-data "aws_iam_policy_document" "api_assume_role" {
-  statement {
-    effect = "Allow"
-
-    principals {
-      type        = "Service"
-      identifiers = ["apigateway.amazonaws.com"]
-    }
-
-    actions = ["sts:AssumeRole"]
-  }
-}
-
 # Lambda code
 data "archive_file" "lambda" {
   type        = "zip"
